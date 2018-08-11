@@ -1,0 +1,71 @@
+<body>
+    <div id="clock">
+        <div id="min"></div>
+        <div id="hour"></div>
+    </div>
+</body>
+
+<style>
+
+/* Change #161616 to your desired color*/
+
+#clock {
+  /* Add position */
+  margin: auto;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  border-color: #161616;
+  width: 50vh; /* Change width */
+  height: 50vh; /* Change height */
+}
+
+#min {
+  background: #161616;
+  height: 40%;
+  left: 50%;
+  position: relative;
+  top: 50%;
+  width: 2px;
+  margin-top: 0px;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: top 0px;
+  transform: rotate(0deg)
+}
+
+#hour {
+  background: #161616;
+  height: 30%;
+  left: 50%;
+  position: relative;
+  top: 50%;
+  width: 2px;
+  margin-top: 0px;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: top 0px;
+  transform: rotate(0deg);
+  margin-top: -40%;
+}
+
+</style>
+
+<script>
+
+function startTime() {
+    var today = new Date();
+    var m = today.getMinutes() * 6;
+    var h = today.getHours() % 12 * 30 + m / 12;
+    document.getElementById("min").style.transform = "rotate(" + eval(180 + m) + "deg)";
+  document.getElementById("hour").style.transform = "rotate(" + eval(180 + h) + "deg)";
+    var t = setTimeout(startTime, 1000);
+}
+
+startTime()
+
+</script>

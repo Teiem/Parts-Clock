@@ -1,0 +1,15 @@
+<div id="Clock"></div>
+
+<Script>
+    function startTime() {
+    var today = new Date();
+    var h = today.getHours();                          //24h
+    //var h = (today.getHours() - 1) % 12 + 1;         //12h
+    var m = today.getMinutes() - 30;
+    m = (m < 10) ? "0" + m : m;
+    document.getElementById("Clock").innerHTML = h + ":" + m;
+    var t = setTimeout(startTime, 1000);
+}
+
+startTime()
+</Script>
